@@ -6,9 +6,7 @@ import './App.css';
 function App() {
   const[nutrition,setnutrition]=useState({})
   const [datavalues, setdatavalues] = useState({});
-  const [label,setlabel]=useState([])
 
-  // Similar to componentDidMount and componentDidUpdate:
   useEffect(async () => {
     try {
       const config = {
@@ -23,22 +21,12 @@ function App() {
         setnutrition(Api1.data)
 
       }
-      loopvalues()
     } catch (error) {
       console.log(error);
     }
   
   },[]);
 
-  const loopvalues=()=>{
-    const add=[]
-    for (const [key, value] of Object.entries(datavalues)) {  
-               add.push(value)
-    }
-    setlabel(add)
-    } 
-
-console.log(label)
   return (
    <Fragment>
     <div className="Top">
